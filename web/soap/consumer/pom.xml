@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>1-calculator-ws</module>
+        <module>3-by-pass-ssl</module>
     </modules>
 
 

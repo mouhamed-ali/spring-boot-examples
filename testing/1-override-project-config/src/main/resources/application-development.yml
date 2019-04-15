@@ -1,0 +1,26 @@
+#data source configuration
+spring:
+  datasource:
+    platform: postgres
+    initialization-mode: always
+    # Spring Boot can detect your database type and execute those scripts on startup.
+    # If you use an embedded database, this happens by default. You can also enable it for any database type, as shown in the following example:
+    #spring.batch.initialize-schema=always
+    #You can also switch off the initialization explicitly by setting spring.batch.initialize-schema=never.
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
+
+  jpa:
+    properties:
+      hibernate:
+        # The SQL dialect makes Hibernate generate better SQL for the chosen database
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        # Hibernate ddl auto (create, create-drop, validate, update, none)
+        ddl-auto: none
+
+logging:
+  level:
+    ROOT: ERROR
+    org.springframework: ERROR
+    org.spring.boot.examples.testing: DEBUG

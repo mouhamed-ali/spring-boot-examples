@@ -1,0 +1,19 @@
+#data source configuration for the production platform
+spring:
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/postgres_prod
+    username: postgres
+    password:
+
+  jpa:
+    properties:
+      hibernate:
+        # The SQL dialect makes Hibernate generate better SQL for the chosen database
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        # Hibernate ddl auto (create, create-drop, validate, update, none)
+        ddl-auto: none
+
+logging:
+  level:
+    ROOT: ERROR

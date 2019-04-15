@@ -5,4 +5,3 @@ INSERT INTO cities(id, name, population, description) VALUES(nextval('my_sequenc
 INSERT INTO cities(id, name, population, description) VALUES(nextval('my_sequence'), 'Los Angeles', 3971000, null);
 INSERT INTO cities(id, name, population, description) VALUES(nextval('my_sequence'), 'New York', 8550000, null);
 INSERT INTO cities(id, name, population, description) VALUES(nextval('my_sequence'), 'Edinburgh', 464000, null);
-INSERT INTO cities(id, name, population, description) VALUES(nextval('my_sequence'), 'Berlin', 3671000, null);

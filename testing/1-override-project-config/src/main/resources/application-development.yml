@@ -2,7 +2,7 @@
 spring:
   datasource:
     platform: postgres
-    initialization-mode: always
+    initialization-mode: always # don't use this in a real application
     # Spring Boot can detect your database type and execute those scripts on startup.
     # If you use an embedded database, this happens by default. You can also enable it for any database type, as shown in the following example:
     #spring.batch.initialize-schema=always

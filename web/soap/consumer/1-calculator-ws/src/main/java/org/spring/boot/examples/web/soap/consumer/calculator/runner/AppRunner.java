@@ -18,6 +18,6 @@ public class AppRunner implements CommandLineRunner {
 
     public void run(String... args) throws Exception {
 
-        LOGGER.info("{}", addService.add(1, 2));
+        LOGGER.info("the result of calculation is : {}", addService.add(1, 2));
     }
 }

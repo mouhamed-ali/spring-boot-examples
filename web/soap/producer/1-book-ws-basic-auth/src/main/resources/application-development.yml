@@ -1,0 +1,13 @@
+# If Spring Security is on the classpath (which is the case) then web applications will automatically be secured with HTTP basic
+# authentication on all HTTP endpoints. In other words our application is now secured with basic auth.
+
+# The default user that will be configured has as name 'user'.
+# The password is randomly generated at startup (it is displayed in the startup logs).
+
+# to customize this behavior we can use the configuration below
+
+spring:
+  security:
+    user:
+      name: client
+      password: password

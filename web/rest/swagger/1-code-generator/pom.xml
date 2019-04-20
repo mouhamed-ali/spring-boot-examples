@@ -11,21 +11,36 @@
 
     <artifactId>1-code-generator</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-codegen-maven-plugin</artifactId>
-                <version>2.4.4</version>
+                <version>2.3.1</version>
                 <executions>
                     <execution>
+                        <id>generate-swagger</id>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <inputSpec>swagger.yaml</inputSpec>
                             <language>java</language>
-                            <library>resttemplate</library>
+                            <inputSpec>src/main/resources/pets-swagger.json</inputSpec>
+                            <apiPackage>com.domain.rest.client.java.api</apiPackage>
+                            <modelPackage>com.domain.rest.client.java.model</modelPackage>
+                            <invokerPackage>com.domain.rest.client.java.invoker</invokerPackage>
+                            <generateApiTests>false</generateApiTests>
+                            <generateApiDocumentation>false</generateApiDocumentation>
+                            <generateModelTests>false</generateModelTests>
+                            <generateModelDocumentation>false</generateModelDocumentation>
+                            <configOptions/>
                         </configuration>
                     </execution>
                 </executions>

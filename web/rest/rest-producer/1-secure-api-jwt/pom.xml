@@ -3,17 +3,13 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>rest</artifactId>
+        <artifactId>rest-producer</artifactId>
         <groupId>org.spring.boot.examples</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>rest-producer</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>1-secure-api-jwt</module>
-    </modules>
+    <artifactId>1-secure-api-jwt</artifactId>
 
 
 </project>

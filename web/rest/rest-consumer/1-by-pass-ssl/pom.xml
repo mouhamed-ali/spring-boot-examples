@@ -3,17 +3,14 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>rest</artifactId>
+        <artifactId>rest-consumer</artifactId>
         <groupId>org.spring.boot.examples</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>rest-consumer</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>1-by-pass-ssl</module>
-    </modules>
+    <artifactId>1-by-pass-ssl</artifactId>
+    <packaging>jar</packaging>
 
 
 </project>

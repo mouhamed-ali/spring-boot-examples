@@ -20,7 +20,7 @@ public class AppRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
 
-        ResponseEntity<String> response = restTemplate.getForEntity("http://dummy.restapiexample.com/api/v1/employees", String.class);
+        ResponseEntity<String> response = restTemplate.getForEntity("https://reqres.in/api/products/3", String.class);
         LOGGER.info("Server response : {}", response.getBody());
     }
 }

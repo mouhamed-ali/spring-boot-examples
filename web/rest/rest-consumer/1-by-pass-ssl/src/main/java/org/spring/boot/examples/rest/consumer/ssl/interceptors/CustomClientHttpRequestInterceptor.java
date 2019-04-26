@@ -6,10 +6,8 @@ import org.springframework.http.HttpRequest;
 import org.springframework.http.client.ClientHttpRequestExecution;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.util.StreamUtils;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
 
 public class CustomClientHttpRequestInterceptor implements ClientHttpRequestInterceptor {
 
@@ -25,7 +23,7 @@ public class CustomClientHttpRequestInterceptor implements ClientHttpRequestInte
         //Add optional additional headers
         //response.getHeaders().add("headerName", "VALUE");
 
-        return execution.execute(request, body);
+        return response;
     }
 
     private void logRequest(HttpRequest request, byte[] body) throws IOException {
@@ -47,7 +45,7 @@ public class CustomClientHttpRequestInterceptor implements ClientHttpRequestInte
             LOGGER.debug("Status code  : {}", response.getStatusCode());
             LOGGER.debug("Status text  : {}", response.getStatusText());
             LOGGER.debug("Headers      : {}", response.getHeaders());
-            LOGGER.debug("Response body: {}", StreamUtils.copyToString(response.getBody(), Charset.defaultCharset()));
+            LOGGER.debug("Response body: {}", response.getBody());
             LOGGER.debug("============================  Response End  =================================================");
         }
     }

@@ -1,0 +1,10 @@
+## App Properties
+app:
+  jwtSecret: JWTSuperSecretKey  # used secret key to generate tokens
+  jwtExpirationInMs: 604800000  # the expiration token in ms
+
+logging:
+  level:
+    ROOT: ERROR
+    org.springframework: INFO
+    org.spring.boot.examples.web.rest.producer.jwt: DEBUG

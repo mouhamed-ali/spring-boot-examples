@@ -18,6 +18,13 @@ import java.io.IOException;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
+    /*
+     * this filter will be used to :
+     * reads JWT authentication token from the Authorization header of all the requests
+     * validates the token loads the user details associated with that token.
+     * Sets the user details in Spring Security’s SecurityContext. Spring Security uses the user details to perform authorization checks.
+     */
+
     @Autowired
     private JwtTokenProvider tokenProvider;
 

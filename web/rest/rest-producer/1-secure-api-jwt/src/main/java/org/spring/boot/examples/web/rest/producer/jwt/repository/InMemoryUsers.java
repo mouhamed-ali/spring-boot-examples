@@ -1,7 +1,7 @@
 package org.spring.boot.examples.web.rest.producer.jwt.repository;
 
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
@@ -34,11 +34,6 @@ public class InMemoryUsers implements UserCrudService, InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
 
-        save(new User("user", "password", Arrays.asList(new GrantedAuthority() {
-            @Override
-            public String getAuthority() {
-                return "USER";
-            }
-        })));
+        save(new User("user", "password", Arrays.asList(new SimpleGrantedAuthority("USER"))));
     }
 }

@@ -11,6 +11,9 @@
 
     <artifactId>rest-consumer</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>1-by-pass-ssl</module>
+    </modules>
 
 
 </project>

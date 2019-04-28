@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>1-secure-api-jwt</module>
+        <module>2-oauth2-auth-server</module>
     </modules>
 
 

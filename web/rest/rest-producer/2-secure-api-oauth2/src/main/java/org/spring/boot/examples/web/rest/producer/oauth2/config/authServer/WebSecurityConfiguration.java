@@ -1,4 +1,4 @@
-package org.spring.boot.examples.web.rest.producer.oauth2.conf;
+package org.spring.boot.examples.web.rest.producer.oauth2.config.authServer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

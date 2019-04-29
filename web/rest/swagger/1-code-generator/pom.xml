@@ -13,9 +13,41 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-codegen</artifactId>
+            <version>2.3.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.okhttp</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>2.7.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.squareup.okhttp</groupId>
+            <artifactId>logging-interceptor</artifactId>
+            <version>2.7.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gsonfire</groupId>
+            <artifactId>gson-fire</artifactId>
+            <version>1.7.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.5.22</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -32,15 +64,19 @@
                         </goals>
                         <configuration>
                             <language>java</language>
-                            <inputSpec>src/main/resources/pets-swagger.json</inputSpec>
-                            <apiPackage>com.domain.rest.client.java.api</apiPackage>
-                            <modelPackage>com.domain.rest.client.java.model</modelPackage>
-                            <invokerPackage>com.domain.rest.client.java.invoker</invokerPackage>
+                            <inputSpec>src/main/resources/pets-swagger.yaml</inputSpec>
+                            <modelPackage>pia</modelPackage>
+                            <generateApis>false</generateApis>
                             <generateApiTests>false</generateApiTests>
                             <generateApiDocumentation>false</generateApiDocumentation>
                             <generateModelTests>false</generateModelTests>
                             <generateModelDocumentation>false</generateModelDocumentation>
-                            <configOptions/>
+                            <generateModels>true</generateModels>
+                            <configOptions>
+                                <interfaceOnly>true</interfaceOnly>
+                                <dateLibrary>java8</dateLibrary>
+                                <java8>true</java8>
+                            </configOptions>
                         </configuration>
                     </execution>
                 </executions>

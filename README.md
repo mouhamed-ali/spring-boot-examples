@@ -1,6 +1,15 @@
 # Spring Boot Examples
 
-<img src="https://github.com/amdouni-mohamed-ali/spring-boot-examples/tree/develop/spring-by-pivotal.png" width="100" height="60" alt="spring boot examples">
+```
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.1.4.RELEASE)
+
+```
 
 This repository contains example projects for the different Spring boot modules to showcase the framework
 and how to use the features provided by the different modules.

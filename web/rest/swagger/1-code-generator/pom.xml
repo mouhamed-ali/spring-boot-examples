@@ -59,7 +59,7 @@
                         </goals>
                         <configuration>
                             <language>java</language>
-                            <inputSpec>src/main/resources/swagger.yaml</inputSpec>
+                            <inputSpec>${project.basedir}/src/main/resources/swagger.yaml</inputSpec>
                             <modelPackage>org.spring.boot.examples.swagger.models</modelPackage>
                             <generateApis>false</generateApis>
                             <generateApiTests>false</generateApiTests>
@@ -76,6 +76,14 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
         </plugins>
     </build>

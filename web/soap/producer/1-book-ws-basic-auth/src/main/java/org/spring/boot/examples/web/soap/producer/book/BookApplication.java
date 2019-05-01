@@ -13,5 +13,7 @@ public class BookApplication {
     /*
      * to test the app you can create a soapui project using this url :
      * http://localhost:8080/ws/library/books.wsdl
+     *
+     * you can find a soap test project in the test resources (the request name is GetBook - Request 1).
      */
 }

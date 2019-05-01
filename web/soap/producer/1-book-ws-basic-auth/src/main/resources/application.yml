@@ -1,0 +1,5 @@
+# the spring profile will be retrieved from the pom.xml. you can override it by declaring an environment variable
+spring:
+  profiles:
+    active: development
+

@@ -12,10 +12,6 @@
     <artifactId>1-book-ws-basic-auth</artifactId>
     <packaging>jar</packaging>
 
-    <properties>
-        <maven-jaxb2-plugin.version>0.14.0</maven-jaxb2-plugin.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -33,7 +29,6 @@
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
-                <version>${maven-jaxb2-plugin.version}</version>
                 <executions>
                     <execution>
                         <goals>

@@ -1,0 +1,10 @@
+server:
+  port: 8090
+
+# our client configuration
+
+client:
+  default-uri: http://localhost:8080/ws/library/books
+  user:
+    name: client
+    password: password

@@ -1,13 +1,10 @@
 # Project Title
 
-Spring Boot + Spring Security + Oauth2
+ThreadPoolTaskExecutor Configuration with Spring Boot
 
 ## Overview
 
-In this example we will show how to implement the Oauth2 authorization using spring security. we gonna configure :
-
-* **The Authorization Server** - the server that provides tokens
-* **The Resource Server** - the server that exposes our rest api
+In this example, we’ll explore the asynchronous execution support in Spring and the use of the ThreadPoolTaskExecutor executor.
 
 ### Prerequisites
 
@@ -26,7 +23,7 @@ mvn clean package
 you can run this application using java -jar, as shown in the following example:
 
 ```
-java -jar target/2-secure-api-oauth2-0.0.1-SNAPSHOT.jar
+java -jar target/1-async-method-0.0.1-SNAPSHOT.jar
 ```
 
 or using the spring boot maven plugin :
@@ -42,8 +39,8 @@ mvn spring-boot:run
 
 ### Running the tests
 
-I've created a postman collection test. you can find it in the test resources. you must start by the login endpoint then you can consume
-other endpoints after providing the received token (you can get it from the login response).
+There is no junit tests in this example. We've created our test in the runner package. We've implemented the Spring’s CommandLineRunner interface
+ so after you start the application the test will be executed automatically and you can check the logs after.
 
 ## Authors
 

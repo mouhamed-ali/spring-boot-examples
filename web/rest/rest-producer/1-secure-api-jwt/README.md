@@ -1,13 +1,11 @@
 # Project Title
 
-Spring Boot + Spring Security + Oauth2
+Spring Boot + Spring Security + JWT
 
 ## Overview
 
-In this example we will show how to implement the Oauth2 authorization using spring security. we gonna configure :
-
-* **The Authorization Server** - the server that provides tokens
-* **The Resource Server** - the server that exposes our rest api
+In this example, We’ll configure Spring Security along with JWT authentication,
+and write the APIs to let users login to our application.
 
 ### Prerequisites
 
@@ -26,7 +24,7 @@ mvn clean package
 you can run this application using java -jar, as shown in the following example:
 
 ```
-java -jar target/2-secure-api-oauth2-0.0.1-SNAPSHOT.jar
+java -jar target/1-secure-api-jwt-0.0.1-SNAPSHOT.jar
 ```
 
 or using the spring boot maven plugin :

@@ -14,6 +14,7 @@
 		<module>testing</module>
 		<module>web</module>
 		<module>multithreading</module>
+        <module>properties</module>
 	</modules>
 	<name>boot-tutorial</name>
 	<description>Demo project for Spring Boot</description>

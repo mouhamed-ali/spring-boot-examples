@@ -5,11 +5,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("classpath:mail.yml")
+@PropertySource("classpath:mail.properties")
+/*
+ * please note that you can't load yaml files using @PropertySource. only .properties files check this for details :
+ * https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config-yaml-shortcomings
+ */
 @ConfigurationProperties(prefix = "mail")
-public class Example {
+public class PropertySourceExample {
 
-    private String hostName;
+    private String hostName;//this will loads host-name, hostname, hostName
     private Integer port;
     private String from;
 
@@ -17,7 +21,7 @@ public class Example {
         return hostName;
     }
 
-    public Example setHostName(String hostName) {
+    public PropertySourceExample setHostName(String hostName) {
         this.hostName = hostName;
         return this;
     }
@@ -26,7 +30,7 @@ public class Example {
         return port;
     }
 
-    public Example setPort(Integer port) {
+    public PropertySourceExample setPort(Integer port) {
         this.port = port;
         return this;
     }
@@ -35,7 +39,7 @@ public class Example {
         return from;
     }
 
-    public Example setFrom(String from) {
+    public PropertySourceExample setFrom(String from) {
         this.from = from;
         return this;
     }

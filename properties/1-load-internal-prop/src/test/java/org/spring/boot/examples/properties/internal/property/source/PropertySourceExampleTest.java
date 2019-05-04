@@ -10,16 +10,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ExampleTest {
+public class PropertySourceExampleTest {
 
     @Autowired
-    Example example;
+    PropertySourceExample propertySourceExample;
 
     @Test
     public void propertiesTest() {
 
-        Assertions.assertThat(example.getHostName()).isEqualTo("jhost@mail.com");
-        Assertions.assertThat(example.getFrom()).isEqualTo("mailer@mail.com");
-        Assertions.assertThat(example.getPort()).isEqualTo(9000);
+        Assertions.assertThat(propertySourceExample.getHostName()).isEqualTo("host@mail.com");
+        Assertions.assertThat(propertySourceExample.getFrom()).isEqualTo("mailer@mail.com");
+        Assertions.assertThat(propertySourceExample.getPort()).isEqualTo(9000);
     }
 }

@@ -11,5 +11,13 @@
 
     <artifactId>1-load-internal-prop</artifactId>
 
+    <!-- To be able to validate properties defined in the file -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+    </dependencies>
 
 </project>

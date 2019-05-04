@@ -3,7 +3,8 @@ database:
   username: foo
   password: bar
 
-secret: foo
+secret: 256p
+port: 8080
 
 list:
   users[0]: first

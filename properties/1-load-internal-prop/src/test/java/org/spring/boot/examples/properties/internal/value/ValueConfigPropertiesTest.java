@@ -21,7 +21,7 @@ public class ValueConfigPropertiesTest {
         Assertions.assertThat(configProperties.getUrl()).isEqualTo("jdbc:postgresql:/localhost:5432/instance");
         Assertions.assertThat(configProperties.getUserName()).isEqualTo("foo");
         Assertions.assertThat(configProperties.getPassword()).isEqualTo("bar");
-        Assertions.assertThat(configProperties.getSecret()).isEqualTo("foo");
+        Assertions.assertThat(configProperties.getSecret()).isEqualTo("256p");
         Assertions.assertThat(configProperties.getNotFound()).isEqualTo("404");
     }
 }

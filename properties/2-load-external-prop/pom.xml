@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>1-load-internal-prop</artifactId>
+    <artifactId>2-load-external-prop</artifactId>
+
 
 </project>

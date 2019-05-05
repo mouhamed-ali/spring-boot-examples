@@ -1,5 +1,6 @@
 package org.spring.boot.examples.http.ssl.config;
 
+import org.spring.boot.examples.http.ssl.utils.SSLUtils;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,8 +11,9 @@ public class AppConfig {
 
 
     @Bean
-    public RestTemplate restTemplate(RestTemplateBuilder builder) throws Exception {
+    public RestTemplate restTemplate(RestTemplateBuilder builder, SSLUtils sslUtils) {
 
+        //sslUtils.disableSSL();
         return builder.build();
     }
 }

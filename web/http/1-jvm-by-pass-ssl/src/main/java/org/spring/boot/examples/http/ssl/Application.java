@@ -11,5 +11,9 @@ public class Application {
 
         // close the application context to shut down the custom ExecutorService
         SpringApplication.run(Application.class, args).close();
+
+        /*
+         * source : https://nakov.com/blog/2009/07/16/disable-certificate-validation-in-java-ssl-connections/
+         */
     }
 }

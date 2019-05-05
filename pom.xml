@@ -15,7 +15,8 @@
 		<module>web</module>
 		<module>multithreading</module>
         <module>properties</module>
-	</modules>
+        <module>packaging</module>
+    </modules>
 	<name>boot-tutorial</name>
 	<description>Demo project for Spring Boot</description>
 	<packaging>pom</packaging>

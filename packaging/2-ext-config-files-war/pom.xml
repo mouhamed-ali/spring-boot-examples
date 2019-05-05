@@ -12,6 +12,10 @@
     <artifactId>2-ext-config-files-war</artifactId>
     <packaging>war</packaging>
 
+    <properties>
+        <spring.active.profile>development</spring.active.profile>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -38,11 +42,13 @@
 
         <resources>
             <resource>
-                <directory>src/main/resources</directory>
+                <directory>${basedir}/src/main/resources</directory>
                 <filtering>true</filtering>
-                <excludes>
-                    <exclude>*.yml</exclude>
-                </excludes>
+                <includes>
+                    <include>application.yml</include>
+                    <include>application-${spring.active.profile}.yml</include>
+                </includes>
+                <targetPath>../files-config</targetPath>
             </resource>
         </resources>
 

@@ -20,4 +20,4 @@ info:
   app:
     name: Spring Sample Application
     description: the current platform is 'development'
-    version: 1.0.0
+    version: '@project.version@'

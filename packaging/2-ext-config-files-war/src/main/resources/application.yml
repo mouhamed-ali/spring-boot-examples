@@ -1,8 +1,10 @@
 # spring profiles configuration
 spring:
   profiles:
-    #active: @spring.active.profile@
-    active: development
+    active: @spring.active.profile@
+
+# you can find the value of this property in the pom.xml fil
+# it will be resolved in the build phase - check the build in the pom.xml file
 
 # Please note that spring will search for application properties in classpath/config before checking
 # the classpath

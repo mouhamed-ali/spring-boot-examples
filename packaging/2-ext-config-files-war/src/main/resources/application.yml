@@ -1,0 +1,9 @@
+# spring profiles configuration
+spring:
+  profiles:
+    #active: @spring.active.profile@
+    active: development
+
+# Please note that spring will search for application properties in classpath/config before checking
+# the classpath
+# check the order here : https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-application-property-files

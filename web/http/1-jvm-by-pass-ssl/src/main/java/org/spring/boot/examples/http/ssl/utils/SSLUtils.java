@@ -20,7 +20,7 @@ public class SSLUtils implements InitializingBean {
     private boolean sslVerificationEnabled = true;
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
 
         if (fakeHostnameVerifier == null)
             fakeHostnameVerifier = new FakeHostNameVerifier();
@@ -66,7 +66,12 @@ public class SSLUtils implements InitializingBean {
      */
     private void trustAllCertificates() throws NoSuchAlgorithmException, KeyManagementException {
 
-        SSLContext sc = SSLContext.getInstance("SSL");
+        SSLContext sc = SSLContext.getInstance("TLS");
+        /*
+         * TLS is the new version of the standard that was previously called SSL, but the term SSL is still wildly used
+         * so please check the protocol (SSL or TLS) using the open ssl for example or your browser. otherwise use this command :
+         * SSLContext sc = SSLContext.getInstance("SSL")
+         */
         sc.init(null, new TrustManager[]{fakeX509TrustManager}, new java.security.SecureRandom());
         HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
     }

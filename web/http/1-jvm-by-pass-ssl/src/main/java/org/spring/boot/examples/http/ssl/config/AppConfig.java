@@ -13,7 +13,7 @@ public class AppConfig {
     @Bean
     public RestTemplate restTemplate(RestTemplateBuilder builder, SSLUtils sslUtils) {
 
-        //sslUtils.disableSSL();
+        sslUtils.disableSSL();
         return builder.build();
     }
 }

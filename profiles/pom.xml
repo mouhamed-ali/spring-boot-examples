@@ -11,6 +11,9 @@
 
     <artifactId>profiles</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>1-maven-profiles-example</module>
+    </modules>
 
 
 </project>

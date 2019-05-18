@@ -1,12 +1,11 @@
 # Project Title
 
-Maven Profiles
+Spring Profiles
 
 ## Overview
 
-In this example, we will show you how to use Maven profile to pass different parameters (server or database parameters) for different environments (dev or prod)
+In this example, we will show you how to use Spring profiles to pass different parameters (server or database parameters) for different environments (dev or prod)
 and how to build an application per environment.
-reference : [https://www.mkyong.com/maven/maven-profiles-example/](https://www.mkyong.com/maven/maven-profiles-example/)
 
 ### Prerequisites
 
@@ -20,14 +19,11 @@ After cloning the project, you can build it from source with this command:
 mvn clean package
 ```
 
-this will use the default maven profile which is dev. to package the production profile you can
+this will use the default spring profile which is development. to package the production profile you can
 use one of the following commands :
 
 ```
-mvn clean package -P prod
-```
-```
-mvn clean package -D env=prod
+mvn clean package -D spring.active.profile=production
 ```
 
 ### Running the application
@@ -35,7 +31,7 @@ mvn clean package -D env=prod
 you can run this application using java -jar, as shown in the following example:
 
 ```
-java -jar target/1-maven-profiles-example-0.0.1-SNAPSHOT.jar
+java -jar target/2-spring-profiles-example-0.0.1-SNAPSHOT.jar
 ```
 
 or using the spring boot maven plugin :

@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>1-maven-profiles-example</module>
+        <module>2-spring-profiles-example</module>
     </modules>
 
 

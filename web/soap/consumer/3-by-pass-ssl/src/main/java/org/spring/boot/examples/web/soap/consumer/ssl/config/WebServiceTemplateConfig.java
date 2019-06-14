@@ -2,16 +2,21 @@ package org.spring.boot.examples.web.soap.consumer.ssl.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpHeaders;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.ws.client.core.WebServiceTemplate;
 import org.springframework.ws.transport.http.HttpsUrlConnectionMessageSender;
 
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.nio.charset.StandardCharsets;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.util.Base64;
 
 
 @Configuration
@@ -40,6 +45,10 @@ public class WebServiceTemplateConfig {
 
         //by pass ssl configuration
         HttpsUrlConnectionMessageSender sender = new HttpsUrlConnectionMessageSender();
+
+        //in the case you must pass by a basic authentication you can use this commented line
+        //HttpsUrlConnectionMessageSender sender = new BasicAuthHttpsConnectionMessageSender("admin","admin");
+
         sender.setTrustManagers(new TrustManager[]{new UnTrustworthyTrustManager()});
         webServiceTemplate.setMessageSender(sender);
 
@@ -70,6 +79,25 @@ public class WebServiceTemplateConfig {
 
         public X509Certificate[] getAcceptedIssuers() {
             return null;
+        }
+    }
+
+    /**
+     * basic authentication message sender
+     */
+    class BasicAuthHttpsConnectionMessageSender extends HttpsUrlConnectionMessageSender {
+
+        private String base64Credentials;
+
+        public BasicAuthHttpsConnectionMessageSender(String username, String password) {
+
+            base64Credentials = Base64.getUrlEncoder().encodeToString((username + ":" + password).getBytes(StandardCharsets.UTF_8));
+        }
+
+        @Override
+        protected void prepareConnection(HttpURLConnection connection) throws IOException {
+            connection.setRequestProperty(HttpHeaders.AUTHORIZATION, String.format("Basic %s", base64Credentials));
+            super.prepareConnection(connection);
         }
     }
 }

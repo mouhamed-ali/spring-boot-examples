@@ -11,7 +11,6 @@ public class Account implements Serializable {
     private static final long serialVersionUID = 9081933484652249500L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "account_name")

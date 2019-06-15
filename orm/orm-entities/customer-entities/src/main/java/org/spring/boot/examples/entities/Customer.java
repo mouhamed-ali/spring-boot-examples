@@ -2,6 +2,7 @@ package org.spring.boot.examples.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,7 +12,6 @@ public class Customer implements Serializable {
     private static final long serialVersionUID = 2496621327675156046L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "first_name")
@@ -31,17 +31,22 @@ public class Customer implements Serializable {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Account> accounts;
 
+    public Customer() {
+        this.accounts = new ArrayList<>();
+    }
+
     /**
      * this method is used to add an account to the current user
      *
      * @param account
      */
-    public void addAccount(Account account) {
+    public Customer addAccount(Account account) {
 
         this.accounts.add(account);
         if (account.getCustomer() != this) {
             account.setCustomer(this);
         }
+        return this;
     }
 
     public Long getId() {

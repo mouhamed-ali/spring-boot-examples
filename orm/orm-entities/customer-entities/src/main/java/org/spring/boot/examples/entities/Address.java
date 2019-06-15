@@ -10,7 +10,6 @@ public class Address implements Serializable {
     private static final long serialVersionUID = 2231621670113065074L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String building;
@@ -66,7 +65,7 @@ public class Address implements Serializable {
      *
      * @param customer
      */
-    public void setCustomer(Customer customer) {
+    public Address setCustomer(Customer customer) {
 
         if (customer == null) {
             if (this.customer != null) {
@@ -76,6 +75,7 @@ public class Address implements Serializable {
             customer.setAddress(this);
         }
         this.customer = customer;
+        return this;
     }
 
     @Override

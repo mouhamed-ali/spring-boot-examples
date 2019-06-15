@@ -21,6 +21,45 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         return query.getResultList();
     }
 
+    @Override
+    public void createCustomer(Customer customer) {
+
+        entityManager.persist(customer);
+    }
+
+    @Override
+    public Customer updateCustomer(Customer customer) {
+
+        return entityManager.merge(customer);
+    }
+
+    @Override
+    public void removeCustomer(Customer customer) {
+
+        entityManager.remove(
+                entityManager.contains(customer) ? customer : entityManager.merge(customer)
+        );
+    }
+
+    @Override
+    public Customer getCustomerById(Long id) {
+
+        return entityManager.find(Customer.class, id);
+    }
+
+    @Override
+    public void removeCustomerById(Long id) {
+
+        entityManager.remove(
+                getCustomerById(id)
+        );
+    }
+
+    @Override
+    public void commitTransaction() {
+        entityManager.flush();
+    }
+
     public EntityManager getEntityManager() {
         return entityManager;
     }

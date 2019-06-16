@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>1-persistence-context</module>
+        <module>2-persistnce-context-multi-ds</module>
     </modules>
 
 

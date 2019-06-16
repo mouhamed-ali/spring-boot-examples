@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>1-persistence-context</artifactId>
+    <artifactId>2-persistnce-context-multi-ds</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>
@@ -22,6 +22,10 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.assertj</groupId>
@@ -30,16 +34,9 @@
 
         <dependency>
             <groupId>org.spring.boot.examples</groupId>
-            <artifactId>customer-entities</artifactId>
-            <version>${customer.entities.version}</version>
+            <artifactId>employee-entities</artifactId>
+            <version>${employee.entities.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
     </dependencies>
 
 </project>

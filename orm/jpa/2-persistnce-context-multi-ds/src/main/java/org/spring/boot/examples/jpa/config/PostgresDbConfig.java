@@ -47,7 +47,7 @@ public class PostgresDbConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder) {
 
         Map<String, String> hibernateProperties = new HashMap<>();
-        hibernateProperties.put("hibernate.hbm2ddl.auto", "update");
+        hibernateProperties.put("hibernate.hbm2ddl.auto", "create-drop");
         hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         hibernateProperties.put("hibernate.show_sql", "true");
         hibernateProperties.put("hibernate.format_sql", "true");

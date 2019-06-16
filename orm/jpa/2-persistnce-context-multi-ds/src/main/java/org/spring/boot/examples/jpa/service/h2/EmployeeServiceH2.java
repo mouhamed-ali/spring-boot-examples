@@ -6,6 +6,8 @@ import org.spring.boot.examples.jpa.service.EmployeeService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class EmployeeServiceH2 implements EmployeeService {
 
@@ -16,9 +18,21 @@ public class EmployeeServiceH2 implements EmployeeService {
     }
 
     @Transactional("postgresTransactionManager")
+    /*
+     * don't use this annotation in a read project
+     * in this example we will start the method with a postgres transaction but in the repository layer we will
+     * stop it and start a new h2 transaction
+     * in a real project you will use h2TransactionManager
+     */
     @Override
     public void createEmployee(Employee employee) {
 
         employeeRepositoryH2.createEmployee(employee);
+    }
+
+    @Override
+    public List<Employee> findAll() {
+
+        return employeeRepositoryH2.findAll();
     }
 }

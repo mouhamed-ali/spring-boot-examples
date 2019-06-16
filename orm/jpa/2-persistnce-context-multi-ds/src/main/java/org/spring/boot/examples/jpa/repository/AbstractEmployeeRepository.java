@@ -1,7 +1,6 @@
 package org.spring.boot.examples.jpa.repository;
 
 import org.spring.boot.examples.entities.Employee;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -11,6 +10,9 @@ public abstract class AbstractEmployeeRepository implements EmployeeRepository {
 
     private EntityManager entityManager;
 
+    /*
+     * select queries didn't need to be transactional
+     */
     @Override
     public List<Employee> findAll() {
 
@@ -24,7 +26,6 @@ public abstract class AbstractEmployeeRepository implements EmployeeRepository {
         entityManager.persist(employee);
     }
 
-    @Transactional("postgresTransactionManager")
     @Override
     public Employee updateEmployee(Employee employee) {
 
@@ -38,6 +39,14 @@ public abstract class AbstractEmployeeRepository implements EmployeeRepository {
                 .setParameter("name", name);
 
         return (Employee) query.getSingleResult();
+    }
+
+    @Override
+    public void removeEmployee(Employee employee) {
+
+        entityManager.remove(
+                entityManager.contains(employee) ? employee : entityManager.merge(employee)
+        );
     }
 
     public EntityManager getEntityManager() {

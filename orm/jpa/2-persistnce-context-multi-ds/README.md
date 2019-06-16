@@ -42,7 +42,7 @@ mvn spring-boot:run
 We've created our test in the runner package. We've implemented the Spring’s CommandLineRunner interface
  so after you start the application the test will be executed automatically and you can check the logs after.
 
-you can run tests using this command
+junit tests can be launched using this command :
 ```
 mvn test
 ```

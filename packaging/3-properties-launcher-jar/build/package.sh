@@ -1,34 +1,89 @@
 #!/bin/bash
 
-buildDirectory=`pwd`
+init(){
+    buildDirectory=`pwd`
+    cd ..
+    rootDirectory=$(pwd)
 
-cd ..
+    echo --------------------------
+    echo "build directory       : $buildDirectory"
+    echo "root directory        : $rootDirectory"
+    echo --------------------------
+}
 
-rootDirectory=$(pwd)
+# deleting current jars
+deleteOldVersion(){
+    for jar in `ls ./build/*.jar`
+    do
+        rm -fv $jar
+    done
+}
 
-echo --------------------------
-echo Start Maven packaging
-echo --------------------------
+package(){
+    mvn clean package -DskipTests
+}
 
-mvn clean package -DskipTests
+getDeliveryFileName(){
 
-cd target
+    jarName=$(ls ./target | grep .-dev.jar*)
+    echo "-- the delivery file is : $jarName"
+}
 
-jarName=$(ls . | grep *.jar)
+copyNewVesion(){
 
-echo --------------------------
-echo "the build directory name is : $buildDirectory"
-echo "the root directory is       : $rootDirectory"
-echo "the jar name is             : $jarName"
-echo --------------------------
+    echo ' -- copying the new version'
+    cp -v ./target/$1 ./build/$2
+}
 
-echo --------------------------
-echo Start copying dependencies
-echo --------------------------
+run(){
 
-# adding the lib directory to our jar file
-jar cf $jarName lib
+    cd $buildDirectory
+    local classPath='./'$applicationName
+    local jvmProperties=" -Dloader.path=lib,./externalLibrairies,./zip \
+                          -Dloader.main=org.spring.boot.examples.packaging.Application"
+    local mainClass='org.springframework.boot.loader.PropertiesLauncher'
+    local args=$1
 
-# showing the jar content
-jar tf $jarName
+    echo
+    echo --------------------------
+    echo "classPath             : $classPath"
+    echo "jvmProperties         : $jvmProperties"
+    echo "mainClass             : $mainClass"
+    echo "args                  : $args"
+    echo "current directory     :" $(pwd)
+    echo --------------------------
 
+    java -cp ${classPath} \
+         ${jvmProperties} \
+         ${mainClass} \
+         ${args}
+
+}
+
+####    BEGIN
+
+init
+
+deleteOldVersion
+
+printf '\n--  Start Maven packaging \n'
+package || { echo "packaging problem occurred , return status : $?"; exit 101;}
+
+getDeliveryFileName
+
+applicationName=application.jar
+copyNewVesion $jarName $applicationName
+
+printf '\n\n -- this bean will be loaded from the original application classpath'
+run 'mockSender John Hello_World_!!!'
+
+printf '\n\n -- this bean will be loaded from the an external jar file'
+run 'externalSender Jerome Hello_World_!!!'
+
+printf '\n\n -- this bean will be loaded from an external zip file'
+run 'smtpSender Jack Hello_World_!!!'
+
+return=$?
+printf '\nthe return value is : '$return
+
+####    END

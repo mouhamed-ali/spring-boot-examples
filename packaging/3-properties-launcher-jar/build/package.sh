@@ -40,7 +40,11 @@ run(){
     cd $buildDirectory
     local classPath='./'$applicationName
     local jvmProperties=" -Dloader.path=lib,./externalLibrairies,./zip \
+                          -Dloader.home=.    \
+                          -Dloader.debug=true   \
                           -Dloader.main=org.spring.boot.examples.packaging.Application"
+
+    #Dloader.home is the location of external configuration if not on classpath, and also the base path for any relative paths in the loader path}. Defaults to current working directory
     local mainClass='org.springframework.boot.loader.PropertiesLauncher'
     local args=$1
 

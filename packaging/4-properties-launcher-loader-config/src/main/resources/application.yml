@@ -1,0 +1,10 @@
+db:
+  url: localhost
+  user: admin
+  password: password
+
+logging:
+  level:
+    ROOT: ERROR
+    org.springframework: ERROR
+    org.spring.boot.examples.packaging: DEBUG

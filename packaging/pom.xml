@@ -15,6 +15,7 @@
         <module>1-ext-config-files-jar</module>
         <module>2-ext-config-files-war</module>
         <module>3-properties-launcher-jar</module>
+        <module>4-properties-launcher-loader-config</module>
     </modules>
 
 

@@ -8,6 +8,7 @@ In this example, we will configure our spring boot archive using a custom config
 This model is often more flexible and more amenable to creating well-behaved OS-level services than a model based on executable jars.
 
 ### References
+https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html#executable-jar-launching
 https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#build-tool-plugins-maven-packaging-optional-params(https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#build-tool-plugins-maven-packaging-optional-params)
 https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html(https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html)
 https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java(https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java)

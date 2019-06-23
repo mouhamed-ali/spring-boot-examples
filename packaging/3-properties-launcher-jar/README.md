@@ -4,7 +4,7 @@ Externalize the classpath of a spring boot application
 
 ## Overview
 
-In this example, we will configure our spring boot archive using a custom configuration we will configure the classpath the main class via jvm properties.
+In this example, we will configure our spring boot archive using a custom configuration. we will configure the classpath and the main class via jvm properties.
 This model is often more flexible and more amenable to creating well-behaved OS-level services than a model based on executable jars.
 
 ### References

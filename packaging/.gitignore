@@ -1,0 +1,7 @@
+### Specific gitignore file for this project ###
+
+# ignore all `.jar` in `build` dir
+**/build/*.jar
+
+# Ignore `library` dir
+**/build/library

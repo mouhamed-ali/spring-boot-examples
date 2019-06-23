@@ -5,7 +5,7 @@ run(){
 
     cd $1
     local classPath='./'$2
-    local jvmProperties=" -Dloader.path=lib,./$3 \
+    local jvmProperties=" -Dloader.path=./$3 \
                           -Dloader.home=.    \
                           -Dloader.debug=true   \
                           -Dloader.main=org.spring.boot.examples.packaging.Application"

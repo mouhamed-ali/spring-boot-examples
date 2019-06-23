@@ -13,6 +13,8 @@
 
     <build>
         <plugins>
+            <!-- this configuration will remove all nested jars of our archive (most of them are spring dependencies)
+            but we gonna keep the spring loader dependencies -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -32,7 +34,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- copy all the project dependencies to the lib directory -->
+            <!-- copy all the project dependencies to the lib directory. we gonna use them as an external libraries -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>

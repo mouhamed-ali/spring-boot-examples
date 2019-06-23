@@ -8,11 +8,11 @@ In this example, we will configure our spring boot archive classpath. we will co
 This model is often more flexible and more amenable to creating well-behaved OS-level services than a model based on executable jars.
 
 ### References
-https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html#executable-jar-launching__
-https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#build-tool-plugins-maven-packaging-optional-params__
-https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html__
-https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java__
-https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java__
+https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html#executable-jar-launching<br/>
+https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#build-tool-plugins-maven-packaging-optional-params<br/>
+https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html<br/>
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java<br/>
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java<br/>
 
 ### Prerequisites
 

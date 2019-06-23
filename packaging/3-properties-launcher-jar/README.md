@@ -1,18 +1,18 @@
 # Project Title
 
-Externalize the classpath of a spring boot application
+Load external libraries in a spring boot application
 
 ## Overview
 
-In this example, we will configure our spring boot archive using a custom configuration. we will configure the classpath and the main class via jvm properties.
+In this example, we will configure our spring boot archive classpath. we will configure the classpath and the main class via jvm properties.
 This model is often more flexible and more amenable to creating well-behaved OS-level services than a model based on executable jars.
 
 ### References
-https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html#executable-jar-launching
-https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#build-tool-plugins-maven-packaging-optional-params(https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#build-tool-plugins-maven-packaging-optional-params)
-https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html(https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html)
-https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java(https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java)
-https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java(https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java)
+https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html#executable-jar-launching __
+https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#build-tool-plugins-maven-packaging-optional-params __
+https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html __
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java __
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java __
 
 ### Prerequisites
 

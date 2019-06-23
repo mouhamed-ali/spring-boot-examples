@@ -1,7 +1,7 @@
 # Project Title
 
-Externalize all the dependencies of a spring boot project. this extracted dependencies will be loaded
-as an external libraries using a config file (loader.properties).
+Externalize all the dependencies of a spring boot project. these extracted dependencies will be loaded
+as external libraries using a config file (loader.properties).
 
 ## Overview
 
@@ -9,10 +9,10 @@ In this example, we will configure our spring boot archive to load all dependenc
 We will create a properties file named loader.properties to initialize this configuration.
 
 ### References
-https://docs.spring.io/spring-boot/docs/current/maven-plugin/examples/exclude-dependency.html
-https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/it/executable-props-lib/loader.properties
-https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html#executable-jar-property-launcher-features
-https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java
+https://docs.spring.io/spring-boot/docs/current/maven-plugin/examples/exclude-dependency.html __
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/it/executable-props-lib/loader.properties __
+https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html#executable-jar-property-launcher-features __
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java __
 
 ### Prerequisites
 

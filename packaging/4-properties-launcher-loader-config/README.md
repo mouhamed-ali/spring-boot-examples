@@ -9,10 +9,10 @@ In this example, we will configure our spring boot archive to load all dependenc
 We will create a properties file named loader.properties to initialize this configuration.
 
 ### References
-https://docs.spring.io/spring-boot/docs/current/maven-plugin/examples/exclude-dependency.html __
-https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/it/executable-props-lib/loader.properties __
-https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html#executable-jar-property-launcher-features __
-https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java __
+https://docs.spring.io/spring-boot/docs/current/maven-plugin/examples/exclude-dependency.html__
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/it/executable-props-lib/loader.properties__
+https://docs.spring.io/spring-boot/docs/current/reference/html/executable-jar.html#executable-jar-property-launcher-features__
+https://github.com/spring-projects/spring-boot/blob/master/spring-boot-project/spring-boot-tools/spring-boot-loader/src/main/java/org/springframework/boot/loader/PropertiesLauncher.java__
 
 ### Prerequisites
 

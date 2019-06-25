@@ -14,6 +14,7 @@
     <modules>
         <module>1-code-generator</module>
         <module>2-code-generator-openapi</module>
+        <module>3-swagger-api-documentation</module>
     </modules>
 
 

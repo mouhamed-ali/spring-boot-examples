@@ -1,0 +1,4 @@
+app:
+  name: Products online store
+  description: this api will expose the crud operations of a product store
+  version: ${project.version}

@@ -1,5 +1,6 @@
 package org.spring.boot.examples.web.rest.swagger.api.service;
 
+import org.spring.boot.examples.web.rest.swagger.api.controller.dto.Products;
 import org.spring.boot.examples.web.rest.swagger.api.entity.ProductEntity;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Service;
@@ -23,14 +24,7 @@ public class ProductServiceImpl implements ProductService, InitializingBean {
     }
 
     @Override
-    public void create(String id, String decription, BigDecimal price) {
-
-        ProductEntity productEntity = new ProductEntity()
-                .setProductId(id)
-                .setDescription(decription)
-                .setPrice(price);
-
-        //TODO add javax validation here
+    public void create(ProductEntity productEntity) {
 
         products.add(productEntity);
     }
@@ -42,16 +36,28 @@ public class ProductServiceImpl implements ProductService, InitializingBean {
     }
 
     @Override
-    public void removeAll(String id) {
+    public void removeAll() {
 
         products.clear();
     }
 
     @Override
-    public List<ProductEntity> findAll() {
+    public Products findAll() {
 
         //we will return a copy of our products
-        return new ArrayList<>(products);
+        return new Products().addProducts(new ArrayList<>(products));
+    }
+
+    @Override
+    public boolean update(String id, ProductEntity productEntity) {
+
+        int index = products.indexOf(productEntity);
+        if (index == -1) {
+            return false;
+        } else {
+            products.set(index, productEntity);
+            return true;
+        }
     }
 
     @Override

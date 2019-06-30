@@ -29,6 +29,7 @@
 
         <employee.entities.version>0.0.1-SNAPSHOT</employee.entities.version>
         <customer.entities.version>0.0.1-SNAPSHOT</customer.entities.version>
+        <github.users.entities.version>0.0.1-SNAPSHOT</github.users.entities.version>
 	</properties>
 
 	<dependencies>
@@ -44,7 +45,6 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>3.12.2</version>
             <scope>test</scope>
         </dependency>
 	</dependencies>

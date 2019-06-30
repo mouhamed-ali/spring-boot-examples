@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class User {
+public class GithubUser {
 
     private Long id;
     private String login;
@@ -17,9 +17,9 @@ public class User {
     private String location;
     private String email;
     private LocalDate creationDate;
-    private List<Repository> repositories;
+    private List<GithubRepository> repositories;
 
-    public User() {
+    public GithubUser() {
         this.repositories = new ArrayList<>();
     }
 
@@ -28,7 +28,7 @@ public class User {
         return id;
     }
 
-    public User setId(Long id) {
+    public GithubUser setId(Long id) {
         this.id = id;
         return this;
     }
@@ -37,7 +37,7 @@ public class User {
         return login;
     }
 
-    public User setLogin(String login) {
+    public GithubUser setLogin(String login) {
         this.login = login;
         return this;
     }
@@ -46,7 +46,7 @@ public class User {
         return url;
     }
 
-    public User setUrl(String url) {
+    public GithubUser setUrl(String url) {
         this.url = url;
         return this;
     }
@@ -55,7 +55,7 @@ public class User {
         return type;
     }
 
-    public User setType(String type) {
+    public GithubUser setType(String type) {
         this.type = type;
         return this;
     }
@@ -64,7 +64,7 @@ public class User {
         return name;
     }
 
-    public User setName(String name) {
+    public GithubUser setName(String name) {
         this.name = name;
         return this;
     }
@@ -73,7 +73,7 @@ public class User {
         return location;
     }
 
-    public User setLocation(String location) {
+    public GithubUser setLocation(String location) {
         this.location = location;
         return this;
     }
@@ -82,7 +82,7 @@ public class User {
         return email;
     }
 
-    public User setEmail(String email) {
+    public GithubUser setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -92,17 +92,18 @@ public class User {
         return creationDate;
     }
 
-    public User setCreationDate(LocalDate creationDate) {
+    public GithubUser setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
         return this;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "owner", cascade = CascadeType.ALL)
-    public List<Repository> getRepositories() {
+    //@OneToMany(fetch = FetchType.LAZY, mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval=true)
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
+    public List<GithubRepository> getRepositories() {
         return repositories;
     }
 
-    public User setRepositories(List<Repository> repositories) {
+    public GithubUser setRepositories(List<GithubRepository> repositories) {
         this.repositories = repositories;
         return this;
     }
@@ -110,14 +111,14 @@ public class User {
     /**
      * add a new repository to the current user
      *
-     * @param repository
+     * @param githubRepository
      * @return
      */
-    public User addRepository(Repository repository) {
+    public GithubUser addRepository(GithubRepository githubRepository) {
 
-        this.repositories.add(repository);
-        if (repository.getOwner() != this) {
-            repository.setOwner(this);
+        this.repositories.add(githubRepository);
+        if (githubRepository.getOwner() != this) {
+            githubRepository.setOwner(this);
         }
         return this;
     }
@@ -141,8 +142,8 @@ public class User {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return id.equals(user.id);
+        GithubUser githubUser = (GithubUser) o;
+        return id.equals(githubUser.id);
     }
 
     @Override

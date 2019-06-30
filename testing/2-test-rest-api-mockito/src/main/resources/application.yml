@@ -1,0 +1,25 @@
+#data source configuration
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
+
+  jpa:
+    #generate-ddl: true
+    hibernate:
+      # Hibernate ddl auto (create, create-drop, validate, update, none)
+      ddl-auto: none
+      show-sql: true
+    properties:
+      hibernate:
+        # The SQL dialect makes Hibernate generate better SQL for the chosen database
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        default_schema: public
+
+logging:
+  level:
+    ROOT: ERROR
+    org.springframework: INFO
+    org.spring.boot.examples.testing: DEBUG

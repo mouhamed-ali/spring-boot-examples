@@ -18,6 +18,12 @@ spring:
         format_sql: true
         default_schema: public
 
+github:
+  user:
+    api: https://api.github.com/users/%s
+  repo:
+    api: https://api.github.com/users/%s/repos
+
 logging:
   level:
     ROOT: ERROR

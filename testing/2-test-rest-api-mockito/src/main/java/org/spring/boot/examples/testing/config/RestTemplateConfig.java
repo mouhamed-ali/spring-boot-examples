@@ -22,14 +22,14 @@ public class RestTemplateConfig {
 
     @Bean
     @Profile("production")
-    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+    public RestTemplate restTemplateProduction(RestTemplateBuilder builder) {
 
         return builder.build();
     }
 
     @Bean
     @Profile("development")
-    public RestTemplate restTemplate() {
+    public RestTemplate restTemplateDevelopment() {
 
         /*
                create an Http interceptor to trace all the requests of our rest template

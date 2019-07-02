@@ -9,5 +9,5 @@ public interface GithubRepositoryRepository extends JpaRepository<GithubReposito
 
     List<GithubRepository> findByOwnerLogin(String id);
 
-    GithubRepository findByLoginOwnerLogin(String id, String ownerId);
+    GithubRepository findByNameAndOwnerLogin(String id, String ownerId);
 }

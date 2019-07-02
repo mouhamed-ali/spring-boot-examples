@@ -19,10 +19,10 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class GithubUserController {
 
-    private final GithubUserService githubUserService;
+    private final GithubUserService githubUserServiceDispatcher;
 
-    public GithubUserController(GithubUserService githubUserService) {
-        this.githubUserService = githubUserService;
+    public GithubUserController(GithubUserService githubUserServiceDispatcher) {
+        this.githubUserServiceDispatcher = githubUserServiceDispatcher;
     }
 
     /**
@@ -35,7 +35,7 @@ public class GithubUserController {
     public ResponseEntity<GithubUser> getUser(@PathVariable String userName) {
 
 
-        return new ResponseEntity<>(githubUserService.findByUserName(userName), HttpStatus.OK);
+        return new ResponseEntity<>(githubUserServiceDispatcher.findByUserName(userName), HttpStatus.OK);
     }
 
     /**
@@ -48,7 +48,7 @@ public class GithubUserController {
     public ResponseEntity<List<GithubRepository>> getUserRepositories(@PathVariable String userName) {
 
 
-        return new ResponseEntity<>(githubUserService.getRepositories(userName), HttpStatus.OK);
+        return new ResponseEntity<>(githubUserServiceDispatcher.getRepositories(userName), HttpStatus.OK);
     }
 
     /**
@@ -62,7 +62,7 @@ public class GithubUserController {
     public ResponseEntity<GithubRepository> getUserRepository(@PathVariable String userName, @PathVariable String reposName) {
 
 
-        return new ResponseEntity<>(githubUserService.getRepository(reposName, userName), HttpStatus.OK);
+        return new ResponseEntity<>(githubUserServiceDispatcher.getRepository(reposName, userName), HttpStatus.OK);
     }
 
     /**
@@ -74,6 +74,6 @@ public class GithubUserController {
     public ResponseEntity<List<String>> getUsers() {
 
 
-        return new ResponseEntity<>(githubUserService.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(githubUserServiceDispatcher.findAll(), HttpStatus.OK);
     }
 }

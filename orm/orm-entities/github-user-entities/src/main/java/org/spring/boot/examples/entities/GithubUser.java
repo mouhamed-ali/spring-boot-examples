@@ -1,5 +1,6 @@
 package org.spring.boot.examples.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
@@ -21,6 +22,7 @@ public class GithubUser {
     private List<GithubRepository> repositories;
 
     @JsonProperty("created_at") // the name of the property is created_at on the github service
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate creationDate;
 
     public GithubUser() {

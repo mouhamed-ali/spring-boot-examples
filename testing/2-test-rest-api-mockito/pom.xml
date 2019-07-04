@@ -29,6 +29,10 @@
             <artifactId>github-user-entities</artifactId>
             <version>${github.users.entities.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

@@ -10,6 +10,8 @@ In this example, we will build an api rest documentation using the swagger annot
 https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html<br/>
 https://docs.spring.io/spring-boot/docs/current/reference/html/howto-database-initialization.html<br/>
 https://www.baeldung.com/jackson-bidirectional-relationships-and-infinite-recursion<br/>
+https://codeboje.de/jackson-java-8-datetime-handling<br/>
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.details<br/>
 
 ### Prerequisites
 

@@ -1,0 +1,31 @@
+#data source configuration
+spring:
+  datasource:
+    url: jdbc:h2:mem:mydb;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1;
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+
+  jpa:
+    show-sql: true
+    #generate-ddl: true
+    hibernate:
+      # Hibernate ddl auto (create, create-drop, validate, update, none)
+      ddl-auto: none
+    properties:
+      hibernate:
+        # The SQL dialect makes Hibernate generate better SQL for the chosen database
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+
+github:
+  user:
+    api: https://api.github.com/users/%s
+  repo:
+    api: https://api.github.com/users/%s/repos
+
+logging:
+  level:
+    ROOT: ERROR
+    org.springframework: INFO
+    org.spring.boot.examples.testing: DEBUG

@@ -1,6 +1,7 @@
 package org.spring.boot.examples.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -10,13 +11,17 @@ public class GithubRepository {
 
     private Long id;
     private String name;
-    private String fullName;
     private String description;
     private String url;
     private Boolean fork;
     private String language;
-    private String defaultBranch;
     private GithubUser owner;
+
+    @JsonProperty("full_name")
+    private String fullName;
+
+    @JsonProperty("default_branch")
+    private String defaultBranch;
 
     @Id
     public Long getId() {
@@ -117,7 +122,6 @@ public class GithubRepository {
                 ", fork=" + fork +
                 ", language='" + language + '\'' +
                 ", defaultBranch='" + defaultBranch + '\'' +
-                ", owner=" + owner +
                 '}';
     }
 

@@ -4,12 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spring.boot.examples.entities.GithubRepository;
 import org.spring.boot.examples.entities.GithubUser;
-import org.spring.boot.examples.testing.dao.GithubRepositoryRepository;
-import org.spring.boot.examples.testing.dao.GithubUserRepository;
+import org.spring.boot.examples.testing.config.GithubURLConfig;
 import org.spring.boot.examples.testing.exceptions.ResourceFormatException;
 import org.spring.boot.examples.testing.exceptions.ResourceNotFoundException;
 import org.spring.boot.examples.testing.service.GithubUserService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -28,27 +26,21 @@ import java.util.Optional;
 public class GithubApiUserService implements GithubUserService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GithubApiUserService.class);
-
-    @Value("${github.user.api}")
-    private static String gitHubUserApi;
-    @Value("${github.repo.api}")
-    private static String gitHubRepoApi;
-
     private final RestTemplate restTemplate;
-    private final GithubUserRepository githubUserRepository;
-    private final GithubRepositoryRepository githubRepositoryRepository;
+    private final GithubURLConfig githubURLConfig;
 
-    public GithubApiUserService(RestTemplate restTemplate, GithubUserRepository githubUserRepository, GithubRepositoryRepository githubRepositoryRepository) {
+    public GithubApiUserService(RestTemplate restTemplate, GithubURLConfig githubURLConfig) {
         this.restTemplate = restTemplate;
-        this.githubUserRepository = githubUserRepository;
-        this.githubRepositoryRepository = githubRepositoryRepository;
+        this.githubURLConfig = githubURLConfig;
     }
 
     @Override
     public GithubUser findByUserName(String id) {
 
         validateIdentifier(id);
-        return githubUserRepository.findByLogin(id);
+        return restTemplate.getForObject(
+                String.format(githubURLConfig.getGitHubUserApi(), id),
+                GithubUser.class);
     }
 
     /**
@@ -72,7 +64,7 @@ public class GithubApiUserService implements GithubUserService {
         HttpEntity<String> entity = new HttpEntity<>("body", headers);
 
         ResponseEntity<List<GithubRepository>> response = restTemplate.exchange(
-                String.format(gitHubRepoApi, id),
+                String.format(githubURLConfig.getGitHubRepoApi(), id),
                 HttpMethod.GET,
                 entity,
                 new ParameterizedTypeReference<List<GithubRepository>>() {
@@ -82,16 +74,16 @@ public class GithubApiUserService implements GithubUserService {
     }
 
     @Override
-    public GithubRepository getRepository(String userId, String repoId) {
+    public GithubRepository getRepository(String userName, String repoName) {
 
         LOGGER.debug("validate user id");
-        validateIdentifier(userId);
+        validateIdentifier(userName);
 
         LOGGER.debug("validate repository id");
-        validateIdentifier(repoId);
+        validateIdentifier(repoName);
 
         ResponseEntity<List<GithubRepository>> response = restTemplate.exchange(
-                String.format(gitHubRepoApi, userId),
+                String.format(githubURLConfig.getGitHubRepoApi(), userName),
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<GithubRepository>>() {
@@ -102,14 +94,14 @@ public class GithubApiUserService implements GithubUserService {
                 .orElse(new ArrayList<>())
                 .stream()
                 .filter(
-                        githubRepository -> userId.equals(githubRepository.getName())
+                        githubRepository -> repoName.equals(githubRepository.getName())
                 )
                 .findFirst()
                 .orElse(null);
 
 
         if (repository == null)
-            throw new ResourceNotFoundException(String.format("this user does not have any repository , %s", userId));
+            throw new ResourceNotFoundException(String.format("this user does not have any repository , %s", userName));
 
         return repository;
     }

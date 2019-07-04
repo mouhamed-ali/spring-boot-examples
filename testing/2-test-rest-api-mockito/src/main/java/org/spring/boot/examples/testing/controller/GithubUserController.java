@@ -34,7 +34,6 @@ public class GithubUserController {
     @GetMapping("/users/{userName}")
     public ResponseEntity<GithubUser> getUser(@PathVariable String userName) {
 
-
         return new ResponseEntity<>(githubUserServiceDispatcher.findByUserName(userName), HttpStatus.OK);
     }
 
@@ -46,7 +45,6 @@ public class GithubUserController {
      */
     @GetMapping("/users/{userName}/repos")
     public ResponseEntity<List<GithubRepository>> getUserRepositories(@PathVariable String userName) {
-
 
         return new ResponseEntity<>(githubUserServiceDispatcher.getRepositories(userName), HttpStatus.OK);
     }
@@ -61,8 +59,7 @@ public class GithubUserController {
     @GetMapping("/users/{userName}/repos/{reposName}")
     public ResponseEntity<GithubRepository> getUserRepository(@PathVariable String userName, @PathVariable String reposName) {
 
-
-        return new ResponseEntity<>(githubUserServiceDispatcher.getRepository(reposName, userName), HttpStatus.OK);
+        return new ResponseEntity<>(githubUserServiceDispatcher.getRepository(userName, reposName), HttpStatus.OK);
     }
 
     /**
@@ -72,7 +69,6 @@ public class GithubUserController {
      */
     @GetMapping("/users")
     public ResponseEntity<List<String>> getUsers() {
-
 
         return new ResponseEntity<>(githubUserServiceDispatcher.findAll(), HttpStatus.OK);
     }

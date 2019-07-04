@@ -11,7 +11,7 @@ public interface GithubUserService {
 
     List<GithubRepository> getRepositories(String name);
 
-    GithubRepository getRepository(String repoName, String userName);
+    GithubRepository getRepository(String userName, String repoName);
 
     List<String> findAll();
 }

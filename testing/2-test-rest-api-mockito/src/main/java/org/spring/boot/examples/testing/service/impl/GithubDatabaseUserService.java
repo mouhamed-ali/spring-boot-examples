@@ -40,9 +40,9 @@ public class GithubDatabaseUserService implements GithubUserService, org.spring.
     }
 
     @Override
-    public GithubRepository getRepository(String repoId, String userId) {
+    public GithubRepository getRepository(String userName, String repoName) {
 
-        return githubRepositoryRepository.findByNameAndOwnerLogin(repoId, userId);
+        return githubRepositoryRepository.findByNameAndOwnerLogin(repoName, userName);
     }
 
     @Override

@@ -6,11 +6,11 @@ spring:
     password: password
 
   jpa:
+    show-sql: true
     #generate-ddl: true
     hibernate:
       # Hibernate ddl auto (create, create-drop, validate, update, none)
       ddl-auto: none
-      show-sql: true
     properties:
       hibernate:
         # The SQL dialect makes Hibernate generate better SQL for the chosen database

@@ -8,6 +8,7 @@ import org.spring.boot.examples.testing.config.GithubURLConfig;
 import org.spring.boot.examples.testing.exceptions.ResourceFormatException;
 import org.spring.boot.examples.testing.exceptions.ResourceNotFoundException;
 import org.spring.boot.examples.testing.service.GithubUserService;
+import org.spring.boot.examples.testing.utils.GithubDatesUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -38,9 +39,24 @@ public class GithubApiUserService implements GithubUserService {
     public GithubUser findByUserName(String id) {
 
         validateIdentifier(id);
-        return restTemplate.getForObject(
+        GithubUser user = restTemplate.getForObject(
                 String.format(githubURLConfig.getGitHubUserApi(), id),
                 GithubUser.class);
+        this.transformDates(user);
+        return user;
+    }
+
+    /**
+     * this method will change the zoneid of the received dates
+     *
+     * @param user
+     */
+    private void transformDates(GithubUser user) {
+
+        if (user.getCreationDate() != null)
+            user.setCreationDate(
+                    GithubDatesUtils.getLocalDateTime(user.getCreationDate())
+            );
     }
 
     /**

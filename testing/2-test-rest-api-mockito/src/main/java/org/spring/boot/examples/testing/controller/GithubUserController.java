@@ -16,7 +16,7 @@ import java.util.List;
  * our main service controller
  */
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/github/api/v1")
 public class GithubUserController {
 
     private final GithubUserService githubUserServiceDispatcher;

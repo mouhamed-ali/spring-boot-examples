@@ -28,7 +28,7 @@ public class RestTemplateConfig {
     }
 
     @Bean
-    @Profile({"development", "test"})    //you can user this annotation if you want @Profile("!production")
+    @Profile({"development", "test"})    //you can use this annotation if you want @Profile("!production")
     public RestTemplate restTemplateDevelopment() {
 
         /*

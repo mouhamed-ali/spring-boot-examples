@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS github_user CASCADE;
 CREATE TABLE github_user
 (
     id bigint NOT NULL,
-    creation_date date,
+    creation_date timestamp,
     email character varying(255),
     location character varying(255),
     login character varying(255),

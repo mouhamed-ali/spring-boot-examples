@@ -4,13 +4,19 @@ spring:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: password
+    initialization-mode: always
+    #  is marked as always as we want initialization of the database to happen on every startup.
+    initialize: true
+    # will mark the initialization to be true.
+    data: classpath:data-postgres.sql
+    schema: classpath:schema-postgres.sql
 
   jpa:
     show-sql: true
     #generate-ddl: true
     hibernate:
       # Hibernate ddl auto (create, create-drop, validate, update, none)
-      ddl-auto: none
+      ddl-auto: validate
     properties:
       hibernate:
         # The SQL dialect makes Hibernate generate better SQL for the chosen database

@@ -3,11 +3,11 @@ package org.spring.boot.examples.testing.test.data.controller;
 import org.spring.boot.examples.entities.GithubRepository;
 import org.spring.boot.examples.entities.GithubUser;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class GetUserController {
 
-    public static final GithubUser getUser() {
+    public static final GithubUser getUserDataBase() {
 
         GithubRepository repository = new GithubRepository()
                 .setId(188292833L)
@@ -21,7 +21,7 @@ public class GetUserController {
 
         GithubUser user = new GithubUser()
                 .setId(33104318L)
-                .setCreationDate(LocalDate.of(2017, 10, 25))
+                .setCreationDate(LocalDateTime.of(2017, 10, 25, 13, 55, 55))
                 .setEmail("info@pivotal.io")
                 .setLocation("San Francisco, CA")
                 .setLogin("pivotal")
@@ -37,7 +37,7 @@ public class GetUserController {
 
         GithubUser user = new GithubUser()
                 .setId(id)
-                .setCreationDate(LocalDate.of(2017, 10, 25))
+                .setCreationDate(LocalDateTime.of(2017, 10, 25, 16, 30, 15))
                 .setEmail("info@pivotal.io")
                 .setLocation("San Francisco, CA")
                 .setLogin(login)

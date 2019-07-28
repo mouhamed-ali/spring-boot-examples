@@ -46,7 +46,7 @@
                 </con:request>
             </con:method>
         </con:resource>
-        <con:resource name="get single user" path="/github/api/v1/users/spring"
+        <con:resource name="get single user" path="/github/api/v1/users/{userName}"
                       id="42310172-1132-42d7-b611-314a6636f281">
             <con:settings/>
             <con:parameters>
@@ -107,7 +107,30 @@
                     </con:credentials>
                     <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
                     <con:jmsPropertyConfig/>
-                    <con:parameters/>
+                    <con:parameters>
+                        <entry key="userName" value="spring" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
+                    <con:parameterOrder>
+                        <con:entry>userName</con:entry>
+                    </con:parameterOrder>
+                </con:request>
+                <con:request name="Not Found User" id="8bb6626c-008d-4fe2-8f9c-347b97b49494"
+                             mediaType="application/json">
+                    <con:settings>
+                        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/>
+                        </con:setting>
+                    </con:settings>
+                    <con:endpoint>http://localhost:8080</con:endpoint>
+                    <con:request/>
+                    <con:originalUri>http://localhost/github/api/v1/users/spring</con:originalUri>
+                    <con:credentials>
+                        <con:authType>No Authorization</con:authType>
+                    </con:credentials>
+                    <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+                    <con:jmsPropertyConfig/>
+                    <con:parameters>
+                        <entry key="userName" value="ccccccVVV230" xmlns="http://eviware.com/soapui/config"/>
+                    </con:parameters>
                     <con:parameterOrder>
                         <con:entry>userName</con:entry>
                     </con:parameterOrder>
@@ -391,7 +414,7 @@
             <con:testStep type="restrequest" name="Request 1" id="9fea3573-3d53-4e66-9864-ea07fab0670a">
                 <con:settings/>
                 <con:config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" service="http://localhost:8080"
-                            resourcePath="/github/api/v1/users/spring" methodName="Method 1"
+                            resourcePath="/github/api/v1/users/{userName}" methodName="Method 1"
                             xsi:type="con:RestRequestStep">
                     <con:restRequest name="Request 1" id="8bb6626c-008d-4fe2-8f9c-347b97b49494"
                                      mediaType="application/json">

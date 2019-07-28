@@ -5,13 +5,13 @@ import org.slf4j.LoggerFactory;
 import org.spring.boot.examples.entities.GithubRepository;
 import org.spring.boot.examples.entities.GithubUser;
 import org.spring.boot.examples.testing.config.GithubURLConfig;
-import org.spring.boot.examples.testing.exceptions.ResourceFormatException;
 import org.spring.boot.examples.testing.exceptions.ResourceNotFoundException;
 import org.spring.boot.examples.testing.service.GithubUserService;
 import org.spring.boot.examples.testing.utils.GithubDatesUtils;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -38,12 +38,20 @@ public class GithubApiUserService implements GithubUserService {
     @Override
     public GithubUser findByUserName(String id) {
 
-        validateIdentifier(id);
-        GithubUser user = restTemplate.getForObject(
-                String.format(githubURLConfig.getGitHubUserApi(), id),
-                GithubUser.class);
-        this.transformDates(user);
-        return user;
+        try {
+
+            GithubUser user = restTemplate.getForObject(
+                    String.format(githubURLConfig.getGitHubUserApi(), id),
+                    GithubUser.class);
+            this.transformDates(user);
+            return user;
+        } catch (HttpClientErrorException e) {
+
+            if (HttpStatus.NOT_FOUND.equals(e.getStatusCode()))
+                throw new ResourceNotFoundException(String.format("Not found user , %s", id));
+            else
+                throw e;
+        }
     }
 
     /**
@@ -59,67 +67,62 @@ public class GithubApiUserService implements GithubUserService {
             );
     }
 
-    /**
-     * Assert that the id cannot be null
-     *
-     * @param id
-     */
-    private void validateIdentifier(String id) {
-
-        if (id == null || "".equals(id.trim()))
-            throw new ResourceFormatException("id cannot be null");
-    }
-
     @Override
     public List<GithubRepository> getRepositories(String id) {
 
-        validateIdentifier(id);
+        try {
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-        HttpEntity<String> entity = new HttpEntity<>("body", headers);
+            HttpHeaders headers = new HttpHeaders();
+            headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+            HttpEntity<String> entity = new HttpEntity<>("body", headers);
 
-        ResponseEntity<List<GithubRepository>> response = restTemplate.exchange(
-                String.format(githubURLConfig.getGitHubRepoApi(), id),
-                HttpMethod.GET,
-                entity,
-                new ParameterizedTypeReference<List<GithubRepository>>() {
-                });
+            ResponseEntity<List<GithubRepository>> response = restTemplate.exchange(
+                    String.format(githubURLConfig.getGitHubRepoApi(), id),
+                    HttpMethod.GET,
+                    entity,
+                    new ParameterizedTypeReference<List<GithubRepository>>() {
+                    });
 
-        return response.getBody();
+            return response.getBody();
+        } catch (HttpClientErrorException e) {
+
+            if (HttpStatus.NOT_FOUND.equals(e.getStatusCode()))
+                throw new ResourceNotFoundException(String.format("this user does not have any repository , %s", id));
+            else
+                throw e;
+        }
     }
 
     @Override
     public GithubRepository getRepository(String userName, String repoName) {
 
-        LOGGER.debug("validate user id");
-        validateIdentifier(userName);
+        try {
 
-        LOGGER.debug("validate repository id");
-        validateIdentifier(repoName);
+            ResponseEntity<List<GithubRepository>> response = restTemplate.exchange(
+                    String.format(githubURLConfig.getGitHubRepoApi(), userName),
+                    HttpMethod.GET,
+                    null,
+                    new ParameterizedTypeReference<List<GithubRepository>>() {
+                    });
 
-        ResponseEntity<List<GithubRepository>> response = restTemplate.exchange(
-                String.format(githubURLConfig.getGitHubRepoApi(), userName),
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<List<GithubRepository>>() {
-                });
+            GithubRepository repository = Optional.ofNullable(response)
+                    .map(ResponseEntity::getBody)
+                    .orElse(new ArrayList<>())
+                    .stream()
+                    .filter(
+                            githubRepository -> repoName.equals(githubRepository.getName())
+                    )
+                    .findFirst()
+                    .orElse(null);
 
-        GithubRepository repository = Optional.ofNullable(response)
-                .map(ResponseEntity::getBody)
-                .orElse(new ArrayList<>())
-                .stream()
-                .filter(
-                        githubRepository -> repoName.equals(githubRepository.getName())
-                )
-                .findFirst()
-                .orElse(null);
+            return repository;
+        } catch (HttpClientErrorException e) {
 
-
-        if (repository == null)
-            throw new ResourceNotFoundException(String.format("this user does not have any repository , %s", userName));
-
-        return repository;
+            if (HttpStatus.NOT_FOUND.equals(e.getStatusCode()))
+                throw new ResourceNotFoundException(String.format("we can't match this repository [%s] to this user [%s]", repoName, userName));
+            else
+                throw e;
+        }
     }
 
     @Override

@@ -130,11 +130,18 @@ public class GithubRepository {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GithubRepository that = (GithubRepository) o;
-        return id.equals(that.id);
+        return Objects.equals(id, that.id) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(description, that.description) &&
+                Objects.equals(url, that.url) &&
+                Objects.equals(fork, that.fork) &&
+                Objects.equals(language, that.language) &&
+                Objects.equals(fullName, that.fullName) &&
+                Objects.equals(defaultBranch, that.defaultBranch);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, name, description, url, fork, language, fullName, defaultBranch);
     }
 }

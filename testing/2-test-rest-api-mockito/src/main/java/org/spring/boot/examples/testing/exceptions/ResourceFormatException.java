@@ -1,9 +1,9 @@
 package org.spring.boot.examples.testing.exceptions;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
-@ResponseStatus(HttpStatus.BAD_REQUEST)//400
+/*
+ * we will not used the @ResponseStatus annotation in this example and we will manage this in the controller.
+ * using the @ResponseStatus we cannot return a response body. it will only return the http status code
+ */
 public class ResourceFormatException extends RuntimeException {
 
     public ResourceFormatException(Exception e) {

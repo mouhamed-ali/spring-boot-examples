@@ -2,6 +2,7 @@ package org.spring.boot.examples.testing.controller;
 
 import org.spring.boot.examples.entities.GithubRepository;
 import org.spring.boot.examples.entities.GithubUser;
+import org.spring.boot.examples.testing.exceptions.ResourceFormatException;
 import org.spring.boot.examples.testing.service.GithubUserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,13 @@ public class GithubUserController {
     @GetMapping("/users/{userName}")
     public ResponseEntity<GithubUser> getUser(@PathVariable String userName) {
 
-        return new ResponseEntity<>(githubUserServiceDispatcher.findByUserName(userName), HttpStatus.OK);
+        try {
+
+            return new ResponseEntity<>(githubUserServiceDispatcher.findByUserName(userName), HttpStatus.OK);
+        } catch (ResourceFormatException e) {
+
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     /**
@@ -46,7 +53,12 @@ public class GithubUserController {
     @GetMapping("/users/{userName}/repos")
     public ResponseEntity<List<GithubRepository>> getUserRepositories(@PathVariable String userName) {
 
-        return new ResponseEntity<>(githubUserServiceDispatcher.getRepositories(userName), HttpStatus.OK);
+        try {
+            return new ResponseEntity<>(githubUserServiceDispatcher.getRepositories(userName), HttpStatus.OK);
+        } catch (ResourceFormatException e) {
+
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     /**
@@ -59,7 +71,12 @@ public class GithubUserController {
     @GetMapping("/users/{userName}/repos/{reposName}")
     public ResponseEntity<GithubRepository> getUserRepository(@PathVariable String userName, @PathVariable String reposName) {
 
-        return new ResponseEntity<>(githubUserServiceDispatcher.getRepository(userName, reposName), HttpStatus.OK);
+        try {
+            return new ResponseEntity<>(githubUserServiceDispatcher.getRepository(userName, reposName), HttpStatus.OK);
+        } catch (ResourceFormatException e) {
+
+            return new ResponseEntity(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     /**

@@ -16,6 +16,7 @@
 		<module>multithreading</module>
         <module>properties</module>
         <module>packaging</module>
+        <module>jdbc</module>
     </modules>
 	<name>boot-tutorial</name>
 	<description>Demo project for Spring Boot</description>

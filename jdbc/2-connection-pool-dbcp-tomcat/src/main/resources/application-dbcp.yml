@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    type: org.apache.commons.dbcp2.BasicDataSource
+    dbcp2:
+      initial-size: 15
+      max-total: 25
+      pool-prepared-statements: true

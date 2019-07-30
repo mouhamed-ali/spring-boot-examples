@@ -8,11 +8,13 @@ In this example, we will build an api rest application using the spring framewor
 queries so when we build our application (from a jenkins job for example) it will works without errors.
 
 ### References
-https://www.baeldung.com/spring-boot-hikari<br/>
-https://github.com/brettwooldridge/HikariCP#configuration-knobs-baby<br/>
-https://javadeveloperzone.com/spring-boot/spring-boot-common-dbcp2-connection-pool/<br/>
+https://www.baeldung.com/spring-boot-tomcat-connection-pool<br/>
 https://www.javainterviewpoint.com/spring-boot-jdbc-connection-pool-example/<br/>
+https://javadeveloperzone.com/spring-boot/spring-boot-common-dbcp2-connection-pool/<br/>
 https://commons.apache.org/proper/commons-dbcp/configuration.html<br/>
+https://commons.apache.org/proper/commons-dbcp/configuration.html<br/>
+http://masterspringboot.com/configuration/web-server/configuring-tomcat-connection-pool-on-spring-boot<br/>
+
 
 ### Prerequisites
 

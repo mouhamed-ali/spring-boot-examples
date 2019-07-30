@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>1-connection-pool-hikari</module>
+        <module>2-connection-pool-dbcp-tomcat</module>
     </modules>
 
 

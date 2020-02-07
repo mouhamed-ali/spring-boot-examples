@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.spring.boot.examples</groupId>
-	<artifactId>boot-tutorial</artifactId>
+	<artifactId>spring-boot-examples</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<modules>
 		<module>commun</module>
@@ -14,11 +14,11 @@
 		<module>testing</module>
 		<module>web</module>
 		<module>multithreading</module>
-        <module>properties</module>
-        <module>packaging</module>
-        <module>jdbc</module>
-    </modules>
-	<name>boot-tutorial</name>
+		<module>properties</module>
+		<module>packaging</module>
+		<module>jdbc</module>
+	</modules>
+	<name>spring-boot-examples</name>
 	<description>Demo project for Spring Boot</description>
 	<packaging>pom</packaging>
 
@@ -27,9 +27,8 @@
 		<java.version>1.8</java.version>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
-
-        <employee.entities.version>0.0.1-SNAPSHOT</employee.entities.version>
-        <customer.entities.version>0.0.1-SNAPSHOT</customer.entities.version>
+		<employee.entities.version>0.0.1-SNAPSHOT</employee.entities.version>
+		<customer.entities.version>0.0.1-SNAPSHOT</customer.entities.version>
         <github.users.entities.version>0.0.1-SNAPSHOT</github.users.entities.version>
 	</properties>
 

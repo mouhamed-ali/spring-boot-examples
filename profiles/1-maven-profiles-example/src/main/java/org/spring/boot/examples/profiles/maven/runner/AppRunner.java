@@ -37,8 +37,8 @@ public class AppRunner implements CommandLineRunner {
     /*
      * if you run the application without using the maven build config (pom.xml). you will have this error :
      * Parameter 0 of constructor in org.spring.boot.examples.profiles.maven.runner.AppRunner required a single bean, but 2 were found:
-     *      - mockMailSender: defined in file [D:\github\boot-tutorial\profiles\1-maven-profiles-example\target\classes\org\spring\boot\examples\profiles\maven\service\MockMailSender.class]
-     *      - smtpMailSender: defined in file [D:\github\boot-tutorial\profiles\1-maven-profiles-example\target\classes\org\spring\boot\examples\profiles\maven\service\SmtpMailSender.class]
+     *      - mockMailSender: defined in file [D:\github\spring-boot-examples\profiles\1-maven-profiles-example\target\classes\org\spring\boot\examples\profiles\maven\service\MockMailSender.class]
+     *      - smtpMailSender: defined in file [D:\github\spring-boot-examples\profiles\1-maven-profiles-example\target\classes\org\spring\boot\examples\profiles\maven\service\SmtpMailSender.class]
      *
      * this means that spring found two implementations of the same type and he can't decide which one to use
      */

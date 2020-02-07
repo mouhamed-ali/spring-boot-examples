@@ -7,17 +7,18 @@
 	<artifactId>spring-boot-examples</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<modules>
-		<module>commun</module>
-		<module>profiles</module>
-		<module>caching</module>
-		<module>orm</module>
-		<module>testing</module>
-		<module>web</module>
-		<module>multithreading</module>
-		<module>properties</module>
-		<module>packaging</module>
-		<module>jdbc</module>
-	</modules>
+        <module>commun</module>
+        <module>profiles</module>
+        <module>caching</module>
+        <module>orm</module>
+        <module>testing</module>
+        <module>web</module>
+        <module>multithreading</module>
+        <module>properties</module>
+        <module>packaging</module>
+        <module>jdbc</module>
+        <module>emails</module>
+    </modules>
 	<name>spring-boot-examples</name>
 	<description>Demo project for Spring Boot</description>
 	<packaging>pom</packaging>

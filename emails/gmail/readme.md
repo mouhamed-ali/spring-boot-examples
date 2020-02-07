@@ -12,12 +12,6 @@ to send messages, the password and the receiver email gonna be system variables.
 After running this app, the run method from the `MailRunner.java` file will be triggered and send an email to the receiver using the declared configuration.
 Check logs after running the app.
 
-## Prerequisites
-
-Java 8 or above
-
-Maven 3.6.0
-
 ## Building
 
 After cloning the project, you can build it from source with this command (from the project directory) :

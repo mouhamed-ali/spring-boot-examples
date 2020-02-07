@@ -14,6 +14,12 @@
 This repository contains example projects for the different Spring boot modules to showcase the framework
 and how to use the features provided by the different modules.
 
+## Prerequisites
+
+Java 8 or above
+
+Maven 3.6.0
+
 ## Authors
 
 * **Amdouni Mohamed Ali** - *Initial work* - [github](https://github.com/amdouni-mohamed-ali)

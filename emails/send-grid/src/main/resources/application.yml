@@ -1,0 +1,8 @@
+# SendGrid API Key
+spring:
+  sendgrid:
+    api-key: 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
+
+
+to: ${EMAIL_RECEIVER}
+from: ${EMAIL_SENDER}

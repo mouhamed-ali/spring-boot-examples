@@ -45,9 +45,9 @@ public class ScriptTest {
 
         //add a debug point in the code below and run the database
         System.out.println("Start database");
-        rows = jdbcTemplate.queryForList("SELECT COUNT(*) AS ROWS FROM USERS").get(0);//TODO : this works ?
+        rows = jdbcTemplate.queryForList("SELECT COUNT(*) AS ROWS FROM USERS").get(0);
         try {
-            Thread.sleep(60000);
+            Thread.sleep(6000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

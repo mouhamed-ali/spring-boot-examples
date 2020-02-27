@@ -1,9 +1,9 @@
 spring:
   datasource:
     initialization-mode: always
-    url: jdbc:postgresql://localhost:15432/postgres
+    url: jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE
     username: admin
-    password: password
+    password:
     schema: classpath:db/sql/create-db.sql
     type: com.zaxxer.hikari.HikariDataSource # the fully-qualified name of the DataSource implementation we want to use
     hikari:
@@ -14,10 +14,3 @@ spring:
       # will never be retired, only when it is closed will it then be removed.
       validationTimeout: 60000 # This property controls the maximum amount of time that a connection will be tested for aliveness.
       # This value must be less than the connectionTimeout. Lowest acceptable validation timeout is 250 ms. Default: 5000
-
-  jpa:
-    properties:
-      hibernate:
-        jdbc:
-          lob:
-            non_contextual_creation: true

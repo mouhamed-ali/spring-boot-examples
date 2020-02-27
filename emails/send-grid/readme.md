@@ -84,7 +84,7 @@ Just check the receiver email to find the email.
 
 If the mail has not been sent, check the activity area from your send grid account.
 
-** PN ** : don't forget to delete the api key if you will share it on the net.
+** PN ** : don't forget to delete the api key if you will share your code on the net.
 
 ## Authors
 

@@ -1,0 +1,22 @@
+# dev data source configuration
+datasource:
+  platform: postgres
+  url: jdbc:postgresql://localhost:5432/prod
+  username: production
+  password: password@production
+  port: 9930
+
+current-platform: production
+current-user: prod
+
+logging:
+  level:
+    ROOT: ERROR
+    org.springframework: ERROR
+    org.spring.boot.examples.packaging: INFO
+
+info:
+  app:
+    name: Spring Sample Application
+    description: the current platform is 'production'
+    version: '@project.version@'

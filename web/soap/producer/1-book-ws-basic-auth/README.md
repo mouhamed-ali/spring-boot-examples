@@ -1,6 +1,6 @@
 # Project Title
 
-Swagger code generator
+SOAP web service server + Basic Authentication
 
 ## Overview
 

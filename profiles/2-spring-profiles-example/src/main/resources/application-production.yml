@@ -1,0 +1,5 @@
+db:
+  url: jdbc:mysql://localhost:3306/prod
+  username: prod-user
+  driverClassName: com.mysql.jdbc.Driver
+  password: prodP@ssword

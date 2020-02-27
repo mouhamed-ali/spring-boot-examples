@@ -1,0 +1,23 @@
+database:
+  url: jdbc:postgresql:/localhost:5432/instance
+  username: foo
+  password: bar
+
+secret: 256p
+port: 8080
+
+list:
+  users[0]: first
+  users[1]: second
+  users[2]: third
+
+map:
+  administrators:
+    admin: admin@mail.com
+    owner: owner@mail.com
+
+object:
+  credentials:
+    username: john
+    password: password
+    authMethod: SHA1

@@ -7,7 +7,11 @@ import org.spring.boot.examples.multithreading.async.service.GitHubService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 @Component
 public class AppRunner implements CommandLineRunner {
@@ -36,13 +40,26 @@ public class AppRunner implements CommandLineRunner {
         CompletableFuture<User> page3 = gitHubService.findUser("Spring-Projects");
 
         // Wait until they are all done
-        CompletableFuture.allOf(page1, page2, page3).join();
+        //CompletableFuture.allOf(page1, page2, page3).join();
+
+        //using a list
+        List<CompletableFuture<User>> list = new ArrayList<>(Arrays.asList(page1, page2, page3));
+
+        CompletableFuture.allOf(list.toArray(new CompletableFuture[list.size()])).join();
 
         // Print results, including elapsed time
         LOGGER.info("Elapsed time: " + (System.currentTimeMillis() - start));
-        LOGGER.info("--> " + page1.get());
-        LOGGER.info("--> " + page2.get());
-        LOGGER.info("--> " + page3.get());
+        // LOGGER.info("--> " + page1.get());
+        // LOGGER.info("--> " + page2.get());
+        // LOGGER.info("--> " + page3.get());
 
+        list.forEach(
+                userCompletableFuture -> {
+                    try {
+                        LOGGER.info("--> {}", userCompletableFuture.get());
+                    } catch (InterruptedException | ExecutionException e) {
+                        LOGGER.error("error occurred , {}", e.toString());
+                    }
+                });
     }
 }

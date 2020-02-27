@@ -1,0 +1,16 @@
+# dev data source configuration
+datasource:
+  platform: postgres
+  url: jdbc:postgresql://localhost:5432/dev
+  username: development
+  password: password@development
+  port: ${random.int}
+
+current-platform: development
+current-user: dev
+
+logging:
+  level:
+    ROOT: ERROR
+    org.springframework: ERROR
+    org.spring.boot.examples.packaging: DEBUG

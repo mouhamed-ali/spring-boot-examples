@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>spring-boot-examples</artifactId>
+        <groupId>org.spring.boot.examples</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>packaging</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>1-ext-config-files-jar</module>
+        <module>2-ext-config-files-war</module>
+        <module>3-properties-launcher-jar</module>
+        <module>4-properties-launcher-loader-config</module>
+    </modules>
+
+
+</project>

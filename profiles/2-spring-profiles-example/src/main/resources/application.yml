@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: ${spring.active.profile}
+
+# you can use this notation as well
+#spring:
+#  profiles:
+#    active: @spring.active.profile@
+
+# spring.active.profile is a maven property
+# you can find the value of this property in the pom.xml file
+# it will be resolved in the build phase - check the build in the pom.xml file

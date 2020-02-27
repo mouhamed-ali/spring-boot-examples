@@ -24,33 +24,41 @@ spring4-examples
 └─── emails
 |    └─── gmail
 |    └─── send-grid
+|
 └─── jdbc
 |    └─── 1-connection-pool-hikari
 |    └─── 2-connection-pool-dbcp-tomcat
+|
 └─── multithreading
 |    └─── 1-async-method
+|
 └─── orm
 |    └─── jpa
 |    |    └─── 1-persistence-context
 |    |    └─── 2-persistnce-context-multi-ds
 |    └─── orm-entities
-|    |    └─── customer-entities
-|    |    └─── employee-entities
-|    |    └─── github-user-entities
+|         └─── customer-entities
+|         └─── employee-entities
+|         └─── github-user-entities
+|
 └─── packaging
 |    └─── 1-ext-config-files-jar
 |    └─── 2-ext-config-files-war
 |    └─── 3-properties-launcher-jar
 |    └─── 4-properties-launcher-loader-config
+|
 └─── profiles
 |    └─── 1-maven-profiles-example
 |    └─── 2-spring-profiles-example
+|
 └─── properties
 |    └─── 1-load-internal-prop
 |    └─── 2-load-external-prop
+|
 └─── testing
 |    └─── 1-override-project-config
 |    └─── 2-test-rest-api-mockito
+|
 └─── web
 |    └─── http
 |    |    └─── 1-jvm-by-pass-ssl
@@ -65,12 +73,12 @@ spring4-examples
 |    |    |    └─── 2-code-generator-openapi
 |    |    |    └─── 3-swagger-api-documentation
 |    └─── soap
-|    |    └─── consumer
-|    |    |    └─── 1-calculator-ws
-|    |    |    └─── 2-book-ws-basic-auth
-|    |    |    └─── 3-by-pass-ssl
-|    |    └─── producer
-|    |    |    └─── 1-book-ws-basic-auth
+|         └─── consumer
+|         |    └─── 1-calculator-ws
+|         |    └─── 2-book-ws-basic-auth
+|         |    └─── 3-by-pass-ssl
+|         └─── producer
+|              └─── 1-book-ws-basic-auth
 ```
 
 ### Prerequisites

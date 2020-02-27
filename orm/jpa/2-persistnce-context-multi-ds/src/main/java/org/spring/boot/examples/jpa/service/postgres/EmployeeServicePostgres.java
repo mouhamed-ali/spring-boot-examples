@@ -11,10 +11,10 @@ import java.util.List;
 @Service
 public class EmployeeServicePostgres implements EmployeeService {
 
-    private final EmployeeRepository employeeRepositoryPostrgres;
+    private final EmployeeRepository employeeRepositoryPostgres;
 
-    public EmployeeServicePostgres(EmployeeRepository employeeRepositoryPostrgres) {
-        this.employeeRepositoryPostrgres = employeeRepositoryPostrgres;
+    public EmployeeServicePostgres(EmployeeRepository employeeRepositoryPostgres) {
+        this.employeeRepositoryPostgres = employeeRepositoryPostgres;
     }
 
     @Transactional("h2TransactionManager")
@@ -27,12 +27,12 @@ public class EmployeeServicePostgres implements EmployeeService {
     @Override
     public void createEmployee(Employee employee) {
 
-        employeeRepositoryPostrgres.createEmployee(employee);
+        employeeRepositoryPostgres.createEmployee(employee);
     }
 
     @Override
     public List<Employee> findAll() {
 
-        return employeeRepositoryPostrgres.findAll();
+        return employeeRepositoryPostgres.findAll();
     }
 }

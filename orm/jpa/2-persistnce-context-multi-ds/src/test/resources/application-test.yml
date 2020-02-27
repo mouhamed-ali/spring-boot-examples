@@ -6,10 +6,19 @@ h2:
     password:
     driver-class-name: org.h2.Driver
 
-#POSTGRES DB
+# POSTGRES DB
+# for testing we have to use an in memory database otherwise we risk to have issues when packaging our app on an another server (jenkins for example)
 postgres:
   datasource:
-    jdbcUrl: jdbc:postgresql://localhost:5432/postgres
-    username: postgres
-    password: password
-    driver-class-name: org.postgresql.Driver
+    jdbcUrl: jdbc:h2:mem:testPostgres;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+    #POSTGRES DB
+    #postgres:
+    #datasource:
+    #jdbcUrl: jdbc:postgresql://localhost:15432/postgres
+    #username: admin
+    #password: password
+    #driver-class-name: org.postgresql.Driver

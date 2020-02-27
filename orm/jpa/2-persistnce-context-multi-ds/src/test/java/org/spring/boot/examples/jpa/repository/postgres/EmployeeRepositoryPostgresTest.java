@@ -18,7 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class EmployeeRepositoryPostgresTest {
 
     @Autowired
-    EmployeeRepository employeeRepositoryPostrgres;
+    EmployeeRepository employeeRepositoryPostgres;
     private Employee employee;
 
     @Before
@@ -31,8 +31,8 @@ public class EmployeeRepositoryPostgresTest {
     @DirtiesContext
     public void createEmployeeTest() {
 
-        employeeRepositoryPostrgres.createEmployee(employee);
-        Employee createdEmployee = employeeRepositoryPostrgres.findByName("Alexandre");
+        employeeRepositoryPostgres.createEmployee(employee);
+        Employee createdEmployee = employeeRepositoryPostgres.findByName("Alexandre");
 
         Assertions.assertThat(createdEmployee.getName()).isEqualTo("Alexandre");
         Assertions.assertThat(createdEmployee.getSalary()).isEqualTo(90.75);
@@ -43,26 +43,26 @@ public class EmployeeRepositoryPostgresTest {
     @DirtiesContext
     public void removeEmployeeTest() {
 
-        employeeRepositoryPostrgres.createEmployee(employee);
-        Employee toDeleteEmployee = employeeRepositoryPostrgres.findByName("Alexandre");
+        employeeRepositoryPostgres.createEmployee(employee);
+        Employee toDeleteEmployee = employeeRepositoryPostgres.findByName("Alexandre");
 
-        employeeRepositoryPostrgres.removeEmployee(toDeleteEmployee);
+        employeeRepositoryPostgres.removeEmployee(toDeleteEmployee);
 
-        employeeRepositoryPostrgres.findByName("Alexandre");
+        employeeRepositoryPostgres.findByName("Alexandre");
     }
 
     @Test
     @DirtiesContext
     public void updateEmployeeTest() {
 
-        employeeRepositoryPostrgres.createEmployee(employee);
+        employeeRepositoryPostgres.createEmployee(employee);
 
-        Employee toUpdateEmployee = employeeRepositoryPostrgres.findByName("Alexandre");
+        Employee toUpdateEmployee = employeeRepositoryPostgres.findByName("Alexandre");
 
         toUpdateEmployee.setSalary(102.50);
-        employeeRepositoryPostrgres.updateEmployee(toUpdateEmployee);
+        employeeRepositoryPostgres.updateEmployee(toUpdateEmployee);
 
-        toUpdateEmployee = employeeRepositoryPostrgres.findByName("Alexandre");
+        toUpdateEmployee = employeeRepositoryPostgres.findByName("Alexandre");
 
         Assertions.assertThat(toUpdateEmployee.getSalary()).isEqualTo(102.50);
     }

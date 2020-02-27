@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Repository
-public class EmployeeRepositoryPostrgres extends AbstractEmployeeRepository {
+public class EmployeeRepositoryPostgres extends AbstractEmployeeRepository {
 
 
     @Transactional(value = "postgresTransactionManager", propagation = Propagation.REQUIRES_NEW)

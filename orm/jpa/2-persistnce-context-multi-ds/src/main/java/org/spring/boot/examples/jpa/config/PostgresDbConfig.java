@@ -49,8 +49,8 @@ public class PostgresDbConfig {
         Map<String, String> hibernateProperties = new HashMap<>();
         hibernateProperties.put("hibernate.hbm2ddl.auto", "create-drop");
         hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-        hibernateProperties.put("hibernate.show_sql", "true");
-        hibernateProperties.put("hibernate.format_sql", "true");
+        hibernateProperties.put("hibernate.show_sql", "false");
+        hibernateProperties.put("hibernate.format_sql", "false");
         hibernateProperties.put("hibernate.jdbc.lob.non_contextual_creation", "true");
 
         return builder

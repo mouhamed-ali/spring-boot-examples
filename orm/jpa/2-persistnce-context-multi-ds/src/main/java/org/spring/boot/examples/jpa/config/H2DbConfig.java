@@ -43,7 +43,7 @@ public class H2DbConfig {
         em.setPackagesToScan(new String[]{"org.spring.boot.examples.entities"});
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-        vendorAdapter.setShowSql(true);
+        vendorAdapter.setShowSql(false);
         vendorAdapter.setGenerateDdl(true);
         vendorAdapter.setDatabase(Database.H2);
         em.setJpaVendorAdapter(vendorAdapter);
@@ -51,7 +51,7 @@ public class H2DbConfig {
         Properties jpaProperties = new Properties();
         jpaProperties.put("hibernate.hbm2ddl.auto", "create-drop");
         jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-        jpaProperties.put("hibernate.show_sql", "true");
+        jpaProperties.put("hibernate.show_sql", "false");
         jpaProperties.put("hibernate.format_sql", "true");
         em.setJpaProperties(jpaProperties);
 

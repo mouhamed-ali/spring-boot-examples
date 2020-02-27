@@ -21,7 +21,7 @@ mvn clean package
 ```
 
 * **1** - copy/paste config files from the resources/configuration directory to a new directory in your file system
-* **2** - change the value of APP_HOME property in this classes [PropertiesApplication (sources) , InitTest(tests)] with
+* **2** - change the value of APP_HOME property in this class [PropertiesApplication (sources)] with
 your full path directory.
 
 ### Built With

@@ -7,8 +7,9 @@ public class InitTest {
 
     @BeforeClass
     public static void setup() {
-
-        System.setProperty("APP_HOME", "D:/tmp/config-files");
+        String currentConfigPath = System.getProperty("user.dir") + "/src/main/resources/configuration";
+        System.out.printf("Current config path : %s %n", currentConfigPath);
+        System.setProperty("APP_HOME", currentConfigPath);
     }
 
     @AfterClass
